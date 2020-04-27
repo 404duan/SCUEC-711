@@ -1,0 +1,56 @@
+<!-- <view class="order_address" bindtap="address">
+    <text>点击去选择地址</text>
+   
+</view> -->
+
+<wxs module="filters" src="confirmOrder.wxs"></wxs>
+<!-- 如果商品表里有信息，则展示页面 -->
+<!-- 个人收货地址信息 -->
+<view wx:if="{{goodsList.length>0}}">
+    <!-- 从本地缓存中获取个人信息 -->
+    <view class="Receiving_address">
+        <view bindtap="upAddr">
+            <view class="name_iphone">{{username}} {{tel}}</view>
+            <view class="address">{{address}}（点击可更改收货地址）</view>
+        </view>
+        <view>
+            <text class="iconfont icon-arrowright"></text>
+        </view>
+    </view>
+
+    <!-- 购物详情 -->
+    <!-- 从购物车存入的本地缓存中获取商品信息 -->
+    <view class="goods_msg" wx:for="{{goodsList}}" wx:for-item="goods">
+        <view class="goods_img">
+            <image src="{{goods.goodsImage}}" mode="widthFix"></image>
+        </view>
+        <!-- 上下布局 -->
+        <view class="goods_up_dowm">
+            <view class="goods_name">{{goods.goodsName}}</view>
+            <!-- 左右布局 -->
+            <view class="goods_left_right">
+                <view class="goods_price">￥{{goods.goodsPrice}}</view>
+                <view class="goods_nums "> X {{goods.inCartCount}} </view>
+                <view class="goods_singlePrice"> 小计：
+                    <text class="single_price">￥{{filters.toFix(goods.goodsPrice*goods.inCartCount)}}</text> </view>
+            </view>
+        </view>
+    </view>
+
+    <!-- 提交订单 -->
+    <view class="order_pay" wx:for="{{goodsList}}" wx:for-item="goods">
+        <view class="pay_money">付款
+            <text class="Total_price">￥{{prices}}元</text>
+        </view>
+        <view class="submit_order" bindtap="bindSubmitOrder">提交订单</view>
+    </view>
+</view>
+
+
+<!-- 否则 显示未下单 -->
+<view wx:else>
+    <!-- 外层 -->
+    <view class='cont_count'>
+        <label class='none_tab'>亲,您还暂未下单哦~~</label>
+    </view>
+</view>

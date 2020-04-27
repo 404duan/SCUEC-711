@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+		<mapper namespace="dao.GoodsDao"> 
+			<select id="findAll"  resultType="entity.Goods"> 
+				select * from Goods
+			</select>
+			<select id="findByid"  resultType="entity.Goods" parameterType="Integer"> 
+				select * from Goods where goodsID = #{0}
+			</select>
+			<select id="findByid2"  resultType="entity.Goods" parameterType="Integer"> 
+				select * from Goods where goodsID = #{0}
+			</select>
+			
+			<select id="findBykind"  resultType="entity.Goods" parameterType="Integer"> 
+				select * from Goods where k_id = #{0}
+			</select>
+			
+			<select id="findTop" resultType="entity.Goods">
+				SELECT * from Goods where goodsID = #{0} or goodsID = #{1} or goodsID = #{2}
+			</select>
+			
+			<select id="findFront" resultType="entity.Goods">
+				SELECT goodsID,g_goodsname,g_goodsprice,g_front,k_id,g_stock FROM goods
+			</select>
+			
+			<select id="search" resultType="entity.Goods">
+				SELECT * from goods WHERE g_goodsname LIKE "%"#{0}"%"
+			</select>
+			
+			<update id="upstock">
+				UPDATE goods SET g_stock = #{0} WHERE goodsID = #{1}
+			</update>
+		</mapper>

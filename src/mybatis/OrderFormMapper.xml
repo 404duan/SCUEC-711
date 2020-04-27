@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+		<mapper namespace="dao.OrderFormDao"> 
+			<select id="findByid"  resultType="entity.OrderForm"> 
+				select * from OrderForm where orderID = #{0}
+			</select> 
+			<insert id="createOrd">
+				INSERT INTO orderform(orderID,time,u_id,prices,address,tel) VALUES(#{0},#{1},#{2},#{3},#{4},#{5})
+			</insert>
+			<select id="findByuid" resultType="entity.OrderForm">
+				SELECT * FROM orderform WHERE u_id = #{0}
+			</select>
+			<update id="upSt">
+				UPDATE orderform SET `status` = 1 WHERE orderID = #{0}
+			</update>
+			
+			<select id="findOrdNum" resultMap="OrderFormResultMap">
+				SELECT o2.orderID,o2.goodsID,o2.goodsnum FROM `order` o2 WHERE o2.orderID IN (SELECT o.orderID FROM orderform o WHERE u_id = #{0})
+			</select>
+			<resultMap type="entity.OrderForm" id="OrderFormResultMap">
+				<!-- <id column="u_id" property="u_id"/>
+				<result column="orderID" property="orderID"/> -->
+				<collection column="o_id" property="order" ofType="entity.Order" javaType="List">
+					<id property="o_id" column="o_id" />
+					<result property="orderID" column="orderID"/>
+					<result property="goodsID" column="goodsID"/>
+					<result property="goodsnum" column="goodsnum"/>
+				</collection>
+			</resultMap>
+			
+			<select id="findGoods" resultMap="GoodsListMap">
+				SELECT g.* FROM goods g WHERE g.goodsID IN (SELECT o2.goodsID FROM `order` o2 WHERE o2.orderID IN (SELECT o.orderID FROM orderform  o WHERE u_id = #{0}))
+			</select>
+			<resultMap type="entity.OrderForm" id="GoodsListMap">
+				<collection column="goodsID" property="goodsList" ofType="entity.Goods" javaType="List">
+					<id property="goodsID" column="goodsID"/>
+					<result property="goodsID" column="goodsID"/>
+					<result property="g_goodsname" column="g_goodsname"/>
+					<result property="g_goodsprice" column="g_goodsprice"/>
+					<result property="k_id" column="k_id"/>
+					<result property="g_describe" column="g_describe"/>
+					<result property="g_image" column="g_image"/>
+					<result property="g_stock" column="g_stock"/>
+					<result property="g_front" column="g_front"/>
+				</collection>
+			</resultMap>
+			
+			
+		</mapper>
