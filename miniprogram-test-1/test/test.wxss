@@ -1,0 +1,120 @@
+/* test/test.wxss */
+
+page {
+    text-align: center;
+    background-image: url("http://img0.imgtn.bdimg.com/it/u=3867267130,4218333474&fm=15&gp=0.jpg")
+}
+
+.grebtn {
+    display: inline-block;
+    padding: 0.5em 1.25em;
+    border: 1px solid;
+    border-radius: 2px;
+    vertical-align: bottom;
+    font-weight: inherit;
+    border-color: #208000 #1f7f00;
+    background-color: #289600;
+    box-shadow: inset 0 0 1px rgba(255, 255, 255, 0.6), 0 1px #8dbf62;
+    color: #fff;
+    text-shadow: 0 -1px #137900;
+    margin: 100px auto;
+}
+
+dot {
+    display: inline-block;
+    height: 1em;
+    line-height: 1;
+    text-align: left;
+    vertical-align: -.25em;
+    overflow: hidden;
+}
+
+dot::before {
+    display: block;
+    content: '...\A..\A.';
+    white-space: pre-wrap;
+    animation: dot 3s infinite step-start both;
+}
+
+@keyframes dot {
+    33% {
+        transform: translateY(-2em);
+    }
+
+    66% {
+        transform: translateY(-1em);
+    }
+}
+/* 折叠菜单 */
+.pop-box {
+    width: 120rpx;
+    height: 120rpx;
+    border: 0rpx solid whitesmoke;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    overflow: hidden;
+    position: fixed;
+    bottom: 100rpx;
+    right: 50rpx;
+}
+
+.pop-box>view {
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: none;
+}
+
+.pop-box>view:nth-child(1) {
+    background-color: rgb(243, 81, 17);
+}
+
+.pop-box>view:nth-child(2) {
+    background-color: rgb(192, 255, 245);
+}
+
+.pop-box>view:nth-child(3) {
+    background-color: rgb(128, 32, 218);
+}
+
+@keyframes unfold {
+    0% {
+        height: 120rpx;
+    }
+
+    80% {
+        height: 500rpx;
+    }
+
+    100% {
+        height: 420rpx;
+    }
+}
+
+@keyframes shrink {
+    0% {
+        height: 420rpx;
+    }
+
+    20% {
+        height: 500rpx;
+    }
+
+    100% {
+        height: 420rpx;
+    }
+}
+
+.on {
+    height: 420rpx;
+    animation: unfold 1.2s 1 ease-out;
+}
+
+.off {
+    height: 120rpx;
+    animation: shrink 1.2s 1 ease-out;
+}

@@ -1,0 +1,111 @@
+/* pages/activity/activity.wxss */
+.fullPage
+{
+  width:100%;
+  height:100vh;
+  position:fixed;
+ 
+}
+
+.ad
+{
+  width: 100%;
+  height: 60%;
+  position: relative;
+}
+
+.body{
+  width: 100%;
+  height: 35%;
+  margin-top: 20rpx;
+  margin-left:-10rpx; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+input{
+  border: 2px solid #eee;
+  width: 100%;
+  height: 40px;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  margin-left: -5rpx;
+  border-radius: 40rpx;
+  padding-left: 25rpx;
+}
+.btn{
+    display: flex;
+    position: fixed;
+    bottom:5%;
+    width: 50%;
+    left:25%;
+}
+button{
+    padding-top: 8rpx;
+    padding-bottom: 8rpx;
+    /* padding-right: 10rpx; */
+    border-width: 3rpx;
+    border-style: solid;
+    border-radius: 50rpx;
+    /* text-align: center; */
+    color: rgb(0, 133, 255);
+    border-color: rgb(0, 133, 255);
+    font-size: 35rpx;
+    /* width: 50%; */
+    margin-bottom: 10rpx;
+}
+
+swiper{
+    height:750rpx;
+    margin-bottom: 10px;
+}
+
+swiper-item{
+    text-align: center;
+    display: block;
+    flex-direction: column;
+}
+
+.textAr{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-top: 30px;
+    justify-content: flex-start;
+    text-align: center;
+}
+.titletext{
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.content{
+    font-size: 14px;
+    color: rgb(128, 128, 128);
+    line-height: 1.5em;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
+}
+
+image{
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+}
+
+.msg
+{
+  width:50%;
+  height:auto;
+  position: fixed;
+  bottom: 25%;
+  text-align: center;
+  margin-left:25%;
+  background-color:rgba(0,0,0,0.5);
+  border-radius: 15rpx;
+  color:white;
+  padding: 10rpx;
+}

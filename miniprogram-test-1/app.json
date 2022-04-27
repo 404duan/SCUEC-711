@@ -1,0 +1,62 @@
+{
+    "pages": [
+        "pages/login/login",
+        "pages/store/store",
+        "pages/index/index",
+        "pages/register/register",
+        "pages/profile/address/address",
+        "test/test",
+        "pages/profile/collection/collection",
+        "pages/main/main",
+        "pages/profile/profile",
+        "pages/confirmOrder/confirmOrder",
+        "components/MyTitle/search/search",
+        "pages/profile/userSetting/userSetting",
+        "pages/shopCart/shopCart",
+        "pages/logs/logs",
+        "pages/profile/aboutApp/aboutApp",
+        "pages/goods/goods",
+        "pages/order3/order3"
+    ],
+    "window": {
+        "navigationBarBackgroundColor": "#54b7ec",
+        "navigationBarTitleText": "民大711",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#FAFFF0",
+        "enablePullDownRefresh": true,
+        "backgroundTextStyle": "dark"
+    },
+    "sitemapLocation": "sitemap.json",
+    "tabBar": {
+        "color": "#03A89E",
+        "selectedColor": "#FFE384",
+        "borderStyle": "black",
+        "backgroundColor": "#FAFFF0",
+        "list": [
+            {
+                "selectedIconPath": "image/系统-首页配置 (1).png",
+                "iconPath": "image/系统-首页配置.png",
+                "pagePath": "pages/main/main",
+                "text": "首页"
+            },
+            {
+                "selectedIconPath": "image/商店 (1).png",
+                "iconPath": "image/商店.png",
+                "pagePath": "pages/store/store",
+                "text": "商城"
+            },
+            {
+                "selectedIconPath": "image/购物车 (1).png",
+                "iconPath": "image/购物车.png",
+                "pagePath": "pages/shopCart/shopCart",
+                "text": "购物车"
+            },
+            {
+                "selectedIconPath": "image/我的 (1).png",
+                "iconPath": "image/我的.png",
+                "pagePath": "pages/profile/profile",
+                "text": "我的"
+            }
+        ]
+    }
+}

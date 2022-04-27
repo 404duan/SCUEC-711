@@ -1,0 +1,48 @@
+<!-- 公共头部 -->
+<MyTitle></MyTitle>
+<view class="topTitle">
+    <view id="leftTitle">商品分类</view>
+    <view id="rightTitle">
+        <swiper current="{{currentTab-1}}">
+            <swiper-item>商品列表-水果蔬菜</swiper-item>
+            <swiper-item>商品列表-冷热速食</swiper-item>
+            <swiper-item>商品列表-休闲食品</swiper-item>
+            <swiper-item>商品列表-酒水饮料</swiper-item>
+            <swiper-item>商品列表-家居用品</swiper-item>
+            <swiper-item>商品列表-清洁日化</swiper-item>
+        </swiper>
+    </view>
+</view>
+<view class="content">
+    <view class="leftArea">
+        <view class="{{flag==1?'select':'normal'}}" id="1" bindtap="switchNav">水果蔬菜</view>
+        <view class="{{flag==2?'select':'normal'}}" id="2" bindtap="switchNav">冷热速食</view>
+        <view class="{{flag==3?'select':'normal'}}" id="3" bindtap="switchNav">休闲食品</view>
+        <view class="{{flag==4?'select':'normal'}}" id="4" bindtap="switchNav">酒水饮料</view>
+        <view class="{{flag==5?'select':'normal'}}" id="5" bindtap="switchNav">家居用品</view>
+        <view class="{{flag==6?'select':'normal'}}" id="6" bindtap="switchNav">清洁日化</view>
+    </view>
+    <view class="rightArea">
+        <view class='rightContent'>
+            <scroll-view class='rightScroll' scroll-y="true">
+                <view class="goodsTag" wx:key="" wx:for="{{goodsList}}" wx:for-item="goods" wx:if="{{goods.k_id==currentTab}}">
+                    <view bindtap='showDetil' id="{{index}}" data-data="{{goods}}" style="display:flex;width:85%;height:100%;">
+                        <view class="goodsTagImage">
+                            <image src="{{goods.g_front}}"></image>
+                        </view>
+                        <view class="goodsTagText">
+                            <view style="font-size:40rpx;font-family:'STXinwei'">{{goods.g_goodsname}} </view>
+                            <view style="font-size:28rpx;color:rgb(128,128,128)">库存：{{goods.g_stock}}</view>
+                            <view style="font-size:40rpx;color:red;">¥{{goods.g_goodsprice}} </view>
+                        </view>
+                    </view>
+                    <!-- <view class="goodsTagAdd" bindtap='addToCart' data-data2="{{goods}}" style="background-color:{{goods.g_stock==0?'#999':'greenyellow'}}">加购</view> -->
+                    <view class="goodsTagAdd">
+                        <image style="height:60%;width:80%;margin-top:10rpx;" src="{{goods.g_stock==0?'/image/addCart1.png':'/image/addCart2.png'}}" bindtap='addToCart' data-data2="{{goods}}"></image>
+                    </view>
+                </view>
+            </scroll-view>
+        </view>
+    </view>
+</view>
+<view class="msg" hidden='{{msgUnvisable}}'>{{msg}}</view>

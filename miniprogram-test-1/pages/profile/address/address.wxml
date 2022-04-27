@@ -1,0 +1,27 @@
+<view class="container2">
+
+    <view class="section">
+        <text>联系人姓名</text>
+        <input placeholder="请输入收货人姓名" value="{{username}}" type="text" bindinput="handleName" auto-focus />
+    </view>
+
+    <view class="section">
+        <text>手机号</text>
+        <input placeholder="请输入手机号" value="{{tel}}" type="number" maxlength="11" bindinput="handleTel" auto-focus />
+    </view>
+
+    <view class="section">
+        <text style="flex:">选择地区</text>
+        <picker mode="region" bindchange="bindRegionChange" value="{{detailed}}" name="detailed">
+            <view >{{detailed}}</view>
+        </picker>
+    </view>
+
+    <view class="section">
+        <text>详细地址</text>
+    </view>
+    <textarea style="height:180rpx;margin-left:3%;" type="text" placeholder="请填写详细地址" maxlength="80" bindinput="handleGate" />
+
+    <button bindtap="submitButton">保存/更改地址</button>
+
+</view>

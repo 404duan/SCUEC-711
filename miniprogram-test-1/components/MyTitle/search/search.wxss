@@ -1,0 +1,95 @@
+page
+{
+  background-color: #eee;
+}
+
+.my_title{
+  display: flex;
+  align-items: center;
+  height:70rpx;
+  background-color: white;
+  position: fixed;
+  top:0%;
+  width:100%;
+}
+.logo{
+  flex: 1;
+  width:auto;
+  height:100%;
+}
+.logo image
+{
+  height:100%;
+  width:70rpx;
+}
+
+.search_icon{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:100%;
+}
+.search_icon:hover
+{
+  background-color: #eee;
+}
+
+.input{
+  flex: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.input input
+{
+  width:85%;
+
+}
+
+
+.goodsTag
+{
+  height:200rpx;
+  width: 100%;
+  background-color:white;
+  margin-bottom: 5px;
+  font-size: 33rpx;
+  display: flex;
+}
+
+.goodsTagImage
+{
+  height:100%;
+  width:33%;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+}
+
+.goodsTagImage image
+{
+  object-fit: cover;
+  height:100%;
+  width: 100%;
+}
+
+.goodsTagText
+{
+  height: 100%;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+
+.goodsTagAdd
+{
+  height:100%;
+  width:15%;
+  right:0%;
+  /* background-color:rgb(186, 221, 133); */
+  color:white;
+  text-align: center;
+  font-size:40rpx;
+  font-weight: bold;
+  padding: 10rpx;
+  padding-top:50rpx; 
+}

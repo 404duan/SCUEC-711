@@ -1,0 +1,44 @@
+/* components/MyTitle.wxss */
+.my_title{
+  display: flex;
+  align-items: center;
+  height:70rpx;
+  background-color: white;
+  position: fixed;
+  top:0%;
+  width:100%;
+}
+.logo{
+  flex: 1;
+  width:auto;
+  height:100%;
+}
+.logo image
+{
+  height:100%;
+  width:70rpx;
+}
+
+.search_icon{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:100%;
+}
+.search_icon:hover
+{
+  background-color: #eee;
+}
+
+.input{
+  flex: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.input input
+{
+  width:85%;
+
+}

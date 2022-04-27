@@ -1,0 +1,56 @@
+<!--pages/main/main.wxml-->
+
+<!-- 公共头部 -->
+<MyTitle></MyTitle>
+
+<view style="background-color:white;padding: 40rpx 40rpx 0rpx;padding-top: 40rpx;">
+    <view style="justify-content: flex-start;min-height: 70rpx;">
+        <navigator style="float: right;" hover-class="navigator-hover" open-type="switchTab" url="../store/store">
+            <text style="font-size: 28rpx;color: #1AAD19;display: block;">更多 ＞</text>
+        </navigator>
+        <text style="display: block;font-size: 32rpx;font-weight: 600;">今日推荐</text>
+    </view>
+</view>
+<!-- 左右滚动轮播图片 -->
+<swiper style="height:500rpx;" indicator-dots="true" autoplay interval="2000" circular indicator-dot="true">
+    <block wx:for="{{tui_img}}" wx:key="img">
+        <swiper-item>
+            <view class="recomm" hover-class="navigator-hover" bindtap="toStore" data-index="{{index}}">
+                <image src="{{item}}" style="height:100%;width:100%"></image>
+                <text class="textRecom" wx:if="{{index==0}}">时令生鲜</text>
+                <text class="textRecom" wx:if="{{index==1}}">冷热速食</text>
+                <text class="textRecom" wx:if="{{index==2}}">休闲食品</text>
+                <text class="textRecom" wx:if="{{index==3}}">酒水饮料</text>
+                <text class="textRecom" wx:if="{{index==4}}">家居用品</text>
+                <text class="textRecom" wx:if="{{index==5}}">清洁日化</text>
+            </view>
+        </swiper-item>
+    </block>
+</swiper>
+
+<view style="background-color:white;padding: 40rpx 40rpx 0rpx;padding-top: 40rpx;">
+    <view style="justify-content: flex-start;min-height: 70rpx;">
+        <navigator style="float: right;" hover-class="navigator-hover" open-type="switchTab" url="../store/store">
+            <text style="font-size: 28rpx;color: #1AAD19;display: block;">更多 ＞</text>
+        </navigator>
+        <text style="display: block;font-size: 39rpx;font-weight: 600;">热门商品</text>
+    </view>
+</view>
+
+<!-- 限量前n位商品的显示 -->
+ <view style="margin-top:3%;" class="goods" wx:for="{{goodsList}}" wx:for-item="goods" wx:key="this" wx:for-index="index2">
+       <navigator class="goodsItem" url="/pages/goods/goods?goodsID={{goods.goodsID}}">
+          <view>
+              <image src="{{goods.g_front}}"></image>
+          </view>
+          <view style="padding-top: 40rpx;padding-bottom: 20rpx;">
+            <view style="font-size:40rpx;font-family:'KaiTi'">{{goods.g_goodsname}} </view>
+            <view style="font-size:28rpx;color:rgb(128,128,128);">销量：{{goods.allSales}}  
+            <image src="/image/up.png" style="width:40rpx;height:40rpx;" wx:if="{{index2<3}}"></image>
+            </view>
+            <view style="color:red;font-size:42rpx;margin-top:10rpx;">¥{{goods.g_goodsprice}}</view>
+          </view>
+        </navigator>
+ </view>
+
+<view style="font-size: 40rpx;color: #1AAD19;font-weight:blod;text-align:center;width:100%;height:60rpx;padding:10rpx;margin-bottom:20rpx;"><navigator open-type="switchTab" url='/pages/store/store'>查看更多>></navigator></view>

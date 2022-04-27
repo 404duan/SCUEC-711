@@ -1,0 +1,25 @@
+<view id="fullpage" hidden='{{hideAll}}'>
+    <view class='title'>
+        <text> ⬇ (´▽`ʃ♡ƪ) 在这里管理收藏 </text>
+    </view>
+
+    <view class="goodsTag" wx:for="{{goodsList}}" wx:for-item="goods" wx:for-index="index" wx:key="">
+        <view class="buttonDel" bindtap="removeItem" data-index='{{index}}'>
+            <image src="/image/close1.png"></image>
+        </view>
+        <view class="goodsArea" bindtap='showDetil' data-data="{{goods.goodsID}}">
+            <view class="goodsImg">
+                <image src="{{goods.g_front}}"></image>
+            </view>
+            <view class="textArea">
+                <view>{{goods.g_goodsname}}</view>
+                <view style="color:red;font-size:45rpx; margin-left:60rpx;">￥{{goods.g_goodsprice}}</view>
+            </view>
+        </view>
+        <!-- <view class="buttonAdd" bindtap="addToCart" data-index="index" data-data="{{goods}}" style="background-color:{{goods.g_stock==0?'#999':'greenyellow'}}">加购</view> -->
+        <view class="buttonAdd">
+            <image style="height:60%;width:70%;margin-top:10rpx;" src="{{goods.g_stock==0?'../../../image/addCart1.png':'../../../image/addCart2.png'}}" bindtap='addToCart' data-data="{{goods}}"></image>
+        </view>
+    </view>
+</view>
+<view class="msg" hidden='{{msgUnvisable}}'>{{msg}}</view>

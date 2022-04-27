@@ -1,0 +1,162 @@
+<!--导航条-->
+<view class="navbar">
+  <lable wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">
+    <text>{{item}}</text>
+  </lable>
+</view>
+<!--全部-->
+<view hidden="{{currentTab!==0}}" class='total' style='background-color: #EBEBEB;'>
+  <!-- orderform 订单内容表长度大于0，则表示有商品，即进行展示 -->
+  <view wx:if="{{orders_List.length>0}}">
+    <!-- 对 orderList 订单内容：展示 订单编号  -->
+    <view class='cont_count' wx:for="{{orders_List}}" wx:for-item="order">
+      <!-- 编号 -->
+      <view class='seria'>
+        <label class='seriac_name'>
+          订单编号
+          <text>{{order.orderID}}</text>
+        </label>
+
+
+      </view>
+      <!-- 对 goodsList 商品内容表：展示 商品封面、商品名称、商品单价 -->
+      <view class='list' wx:for="{{order.goodsList}}" wx:for-item="goods">
+        <view class="goodsItem">
+          <!-- 列表图片 -->
+          <image class='list_img' src="{{goods.g_front}}"></image>
+          <!-- 商品名字 -->
+          <label class='list_name'>{{goods.g_goodsname}}</label>
+          <!-- 商品数量 -->
+          <label class='list_money'>×{{goods.goodsnum}}</label>
+        </view>
+        <view style="height:2rpx;background-color:#eee;width:90%;margin-left:5%"></view>
+      </view>
+      <view class="ord">
+        <view class="ordAddr">
+          <view class="ordf">下单时间：{{order.time}}</view>
+          <view class="ordf">送货地址：{{order.address}}</view>
+        </view>
+        <view class='ordCount'>
+          <view class='ordf_count'>共 {{order.goodsList.length}} 样商品</view>
+          <view class="ordf_count" style="color:red">合计¥{{order.prices}}</view>
+        </view>
+      </view>
+      <!-- <view class='count_eg'>
+        <view class='count_cent' wx:for="{{orders_List[0].order}}" wx:for-item="order">      
+          <label class='cont_cent_name'>共 {{order.goodsnum}} 件商品</label>  
+            <text class='cont_ce_mon'>合计:￥{{order.goodsnum*goods.g_goodsprice}}</text>
+        </view>
+      </view> -->
+      <!-- 标签功能 -->
+      <view class='orderStatus' wx:if="{{order.status!=0}}">已收货</view>
+      <view class='coent_list' wx:if="{{order.status==0}}">
+        <!-- 确认收货 -->
+        <label class='coent_log_base' id="{{order.orderID}}" bindtap="personOrder">确认收货</label>
+      </view>
+
+    </view>
+
+  </view>
+  <!-- 否则 -->
+  <view wx:else>
+    <!-- 外层 -->
+    <view class='cont_count'>
+
+      <label class='none_tab'>亲,您还暂未下单哦~~</label>
+    </view>
+  </view>
+
+</view>
+
+<!-- 代付款
+<view hidden="{{currentTab!==1}}">
+ 
+ 
+</view>
+代发货 
+<view hidden="{{currentTab!==2}}"> -->
+
+<!-- </view> -->
+<!-- 待收货 -->
+<!-- hidden遇false显示 -->
+<view hidden="{{currentTab!==1}}" class='total' style='background-color: #EBEBEB;'>
+  <!-- 外层 -->
+  <!-- <view class='cont_count' wx:for="{{list}}" wx:key="key"> -->
+  <view class='cont_count' wx:for="{{orders_List}}" wx:for-item="order" wx:if="{{order.status==0}}">
+    <!-- 编号 -->
+    <view class='seria'>
+      <label class='seriac_name'>
+        订单编号
+        <text>{{order.orderID}}</text>
+      </label>
+    </view>
+    <!-- 列表 -->
+    <view class='list' wx:for="{{order.goodsList}}" wx:for-item="goods">
+        <view class="goodsItem">
+          <!-- 列表图片 -->
+          <image class='list_img' src="{{goods.g_front}}"></image>
+          <!-- 商品名字 -->
+          <label class='list_name'>{{goods.g_goodsname}}</label>
+          <!-- 商品数量 -->
+          <label class='list_money'>×{{goods.goodsnum}}</label>
+        </view>
+        <view style="height:2rpx;background-color:#eee;width:90%;margin-left:5%"></view>
+    </view>
+    <!-- 计算 -->
+    <view class="ord">
+      <view class="ordAddr">
+        <view class="ordf">下单时间：{{order.time}}</view>
+        <view class="ordf">送货地址：{{order.address}}</view>
+      </view>
+      <view class='ordCount'>
+        <view class='ordf_count'>共 {{order.goodsList.length}} 样商品</view>
+        <view class="ordf_count" style="color:red">合计¥{{order.prices}}</view>
+      </view>
+    </view>
+
+    <!-- 标签功能 -->
+    <view class='coent_list'>
+
+      <!-- 确认收货 -->
+      <label class='coent_log_base' id="{{order.orderID}}" bindtap="personOrder">确认收货</label>
+    </view>
+  </view>
+</view>
+
+<!-- 已完成 -->
+<view hidden="{{currentTab!==2}}" class='total' style='background-color: #EBEBEB;'>
+  <!-- 外层 -->
+  <!-- <view class='cont_count' wx:for="{{list}}" wx:key="key"> -->
+  <view class='cont_count' wx:for="{{orders_List}}" wx:for-item="order" wx:if="{{order.status==1}}">
+    <!-- 编号 -->
+    <view class='seria'>
+      <label class='seriac_name'>
+        订单编号
+        <text>{{order.orderID}}</text>
+      </label>
+    </view>
+    <!-- 列表 -->
+    <view class='list' wx:for="{{order.goodsList}}" wx:for-item="goods">
+        <view class="goodsItem">
+          <!-- 列表图片 -->
+          <image class='list_img' src="{{goods.g_front}}"></image>
+          <!-- 商品名字 -->
+          <label class='list_name'>{{goods.g_goodsname}}</label>
+          <!-- 商品数量 -->
+          <label class='list_money'>×{{goods.goodsnum}}</label>
+        </view>
+    </view>
+    <!-- 计算 -->
+    <view class="ord">
+      <view class="ordAddr">
+        <view class="ordf">下单时间：{{order.time}}</view>
+        <view class="ordf">送货地址：{{order.address}}</view>
+      </view>
+      <view class='ordCount'>
+        <view class='ordf_count'>共 {{order.goodsList.length}} 样商品</view>
+        <view class="ordf_count" style="color:red">合计¥{{order.prices}}</view>
+      </view>
+    </view>
+     <view class='orderStatus' wx:if="{{order.status!=0}}">已收货</view>
+  </view>
+</view>

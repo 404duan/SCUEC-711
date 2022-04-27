@@ -1,0 +1,43 @@
+<view id="fullpage" hidden="{{hideCart}}">
+    <view id="listBlock">
+        <scroll-view class='Scroll' scroll-y="true">
+            <view class="goodsTag" wx:key="" wx:for="{{goodsList}}" wx:for-item="goods" wx:for-index="index">
+                <view class="checkBoxItem" bindtap='itemBoxTap' data-index='{{index}}'>
+                    <image class="checkBoxItemImg" src="/image/check.png" style="background-color:{{goods.selected==true?'greenyellow':'white'}}"></image>
+                </view>
+                <view class="goodsTagImage" bindtap="showDetil" data-data='{{goods.goodsID}}'>
+                    <image src="{{goods.goodsImage}}"></image>
+                </view>
+                <view class="goodsTagText">
+                    <view>{{goods.goodsName}} </view>
+                    <view style="font-size:40rpx;color:red;">¥{{goods.goodsPrice}} </view>
+                    <view class="goodsNumbers">
+                        <view bindtap="tapMinus" data-index='{{index}}'>
+                            <!-- <image src="/image/sub.png" style="background-color:{{goods.inCartCount>1?'greenyellow':'#eee'}}"></image> -->
+                            <image src="{{goods.inCartCount>1?'/image/sub1.png':'/image/sub2.png'}}"></image>
+                        </view>{{goods.inCartCount}}
+                        <view bindtap="tapPlus" data-index='{{index}}'>
+                            <!-- <image src="/image/plus.png" style="background-color:{{goods.inCartCount<goods.goodsStock?'greenyellow':'#eee'}}"></image> -->
+                            <image src="{{goods.inCartCount<goods.goodsStock?'/image/plus1.png':'/image/plus2.png'}}"></image>
+                        </view>
+                    </view>
+                </view>
+                <view class="closeIcon" bindtap='removeItem' data-index="{{index}}">
+                    <image src="/image/close1.png"></image>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+    <view id="countBlock">
+        <view class="checkBoxAll" bindtap='allBoxTap'>
+            <image class="checkBoxAllImg" src="/image/check.png" style="background-color:{{checkAllBoxColor}}"></image>
+        </view>
+        <view class="countText">
+            <text>合计：￥{{count}}</text>
+        </view>
+        <view class="bt_settle" bindtap="gotoSettle" style="background-color:{{selectedCount==0?'#999':'red'}}">
+            <text>去结算</text>
+        </view>
+    </view>
+    <view class="msg" hidden='{{msgUnvisable}}'>{{msg}}</view>
+</view>

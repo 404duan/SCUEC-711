@@ -1,0 +1,53 @@
+<!--pages/login/login.wxml-->
+<view class="fullPage">
+  <view class='ad'>
+      <swiper autoplay="True" indicator-dots="True" lower-threshold="50" circular>
+          <swiper-item>
+              <view class="textAr">
+                  <text class="titletext">精选，真正的流行</text>
+                  <text class="content">只收录最优商品，省去筛选烦恼。     
+                      随时在更新。</text>
+                  <view style="flex: 1 1 0%;height:100%;">
+                      <image style=""  src="{{im1}}" />
+                  </view>
+              </view>
+          </swiper-item>
+          <swiper-item>
+              <view class="textAr">
+                  <text class="titletext">图文，日常生活导读</text>
+                  <text class="content">对消费选择的苛求，衣食住行的洞见。     
+                      生活可以将就，也可以研究。</text>
+                  <view style="flex: 1 1 0%;height: 209px;">
+                      <image  src="{{im2}}" />
+                  </view>
+              </view>
+          </swiper-item>
+          <swiper-item>
+              <view class="textAr">
+                  <text class="titletext">发现，购物正能量</text>
+                  <text class="content">热门商品懒人包，寻找好物不再盲目。     
+                      工作再忙，也要跟紧潮流。</text>
+                  <view style="flex: 1 1 0%;height: 209px;">
+                      <image  src="{{im3}}" />
+                  </view>
+              </view>
+          </swiper-item>
+      </swiper>
+  </view>
+
+  <view class="body">
+      <view class='username'>
+          <text></text>
+          <input type="text" placeholder='用户名' bindinput='input_name'></input>
+      </view>
+      <view class='password'>
+          <text></text>
+          <input type="password" placeholder='密码' bindinput='input_pwd'></input>
+      </view>
+      <view class="btn">
+          <button style="margin-right:25rpx;" bindtap="submitButton">登录</button>
+          <button bindtap="register">注册</button>
+      </view>
+  </view>
+  <view class="msg" hidden='{{msgUnvisable}}'>{{msg}}</view>
+</view>

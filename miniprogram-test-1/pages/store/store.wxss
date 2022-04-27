@@ -1,0 +1,155 @@
+/* pages/store/store.wxss */
+.topTitle
+{
+  font-size: 33rpx;
+  height:60rpx;
+  width: 100%;
+  position:relative;
+  color:white;
+  text-align: center;
+}
+#leftTitle
+{
+  padding: 8rpx;
+  background-color: #54b7ec;
+  height: 100%;
+  width: 25%;
+  left:0px;
+}
+#rightTitle
+{
+  position: absolute;
+  right:0px;
+  top:0px;
+  width:75%;
+  height:100%;
+  padding: 8rpx;
+  /* color: #0619249d; */
+  background-color: #3facac;
+}
+.content{
+  bottom:0;
+  left:0;
+  right:0;
+  height:88vh;
+  display: flex;
+  flex-direction: row;
+}
+
+.leftArea{
+  width: 25%;
+  font-size: 33rpx;
+  height: 100%;
+  background-color: #F4F4F4;
+  position:relative;
+}
+
+.leftArea view{
+  text-align: center;
+  height: 15%;
+  padding-top: 40rpx;
+  line-height: 80rpx;
+}
+
+.select{
+  background-color: #ffffff;
+  /* border-left: 10rpx solid #36AE66;*/
+  border-left: 10rpx solid;
+  font-weight: bold;
+  color: #36AE66;
+}
+
+.normal{
+  background-color: #F4F4F4;
+  border-bottom: rpx solid #f2f2f2;
+}
+
+.rightArea{
+  
+  width: 75%;
+  height:100%;
+  position: relative;
+  top:0;
+  right:0;
+  display: flex;
+  flex-direction: column;
+  word-break: break-all;
+}
+
+.rightContent
+{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  /* background-color: red;
+  padding: 10rpx; */
+}
+
+.rightScroll
+{
+  width: 100%;
+  height:100%;
+  background-color:#F4F4F4;
+}
+
+.goodsTag
+{
+  height:220rpx;
+  width: 100%;
+  background-color:white;
+  margin-bottom: 5px;
+  font-size: 33rpx;
+  display: flex;
+}
+.goodsTagImage
+{
+  height:100%;
+  padding-top: 4%;
+  padding-bottom: 4%;
+  width:33%;
+}
+.goodsTagImage image
+{
+  object-fit: cover;
+  height:100%;
+  width: 100%;
+}
+.goodsTagText
+{
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  padding-left: 10rpx;
+  height:100%;
+  width:55%;
+}
+.goodsTagText view
+{
+  padding-top: 10rpx;
+}
+.goodsTagAdd
+{
+  height:100%;
+  width:25%;
+  right:0%;
+  /* background-color:rgb(186, 221, 133); */
+  color:white;
+  text-align: center;
+  font-size:30rpx;
+  font-weight: bold;
+  padding: 10rpx;
+  padding-top: 55rpx;
+  /* padding-top:50rpx;  */
+}
+
+.msg
+{
+  width:50%;
+  height:auto;
+  position: fixed;
+  bottom: 25%;
+  text-align: center;
+  margin-left:25%;
+  background-color:rgba(0,0,0,0.5);
+  border-radius: 15rpx;
+  color:white;
+}

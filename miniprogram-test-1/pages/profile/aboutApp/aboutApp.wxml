@@ -1,0 +1,17 @@
+<!--pages/profile/aboutApp/aboutApp.wxml-->
+<!--index.wxml-->
+<view class="card">
+<image src="../../../image/logo.png">
+</image>
+</view>
+      
+<view>
+  <button style='margin-top:20rpx' type="primary">
+    开发者信息:第4组
+  </button>
+</view>
+<view>
+  <button style='margin-top:20rpx' type="green">
+  应用版本号 1.0
+  </button>
+</view>

@@ -1,0 +1,38 @@
+<page>
+  <view class="goods">
+  <!-->商品图片区域<-->
+    <swiper indicator-dots="{{indicatorDots}}"
+    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" id="imgArea" circular>
+    <block wx:key="*this" wx:for="{{imgUrls}}">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" bindtap="previewImg"></image>
+      </swiper-item>
+    </block>
+    </swiper>
+
+  <!-->商品文字区域<-->
+    <view class="textArea">
+      <view class="goodsText">
+        <view style='color:red;'>￥<text id="goodsPrice">{{goodsPrice}}</text></view>
+        <view><text>{{goodsInfo}}</text></view>  
+        <!-- <view>商品名：<text>{{goodsName}}</text></view> -->
+        <!-- <view><text>库存:{{goodsStock}} 销量：{{allSales}}</text></view> -->
+      </view>
+    </view>
+    <view class="textArea">
+      <view class="goodsText">
+      <view style="width:50%;"><text>库存：{{goodsStock}}</text></view> <view style="width:50%;"><text>销量：{{allSales}}</text></view>
+        <!-- <view>商品详情：</view> -->
+        <!-- <view><text>{{goodsInfo}}</text></view> -->
+      </view>
+    </view>
+    <view style='height:55px;'></view>
+  </view>
+  <!-->界面图标区域<-->
+  <view bindtap="clicked_bt_star" class='a_button' id="bt_star" style="{{bt_star_style}}"><image src="{{star_img}}"></image></view>
+  <view bindtap="clicked_bt_cart" class='a_button' id="bt_cart" style="{{bt_cart_style}}"><image src="{{cart_img}}"></image></view>
+  <!-- <view class='a_button' id="bt_service"><image src="{{service_img}}"></image></view> -->
+  
+   <view class="msg" hidden='{{msgUnvisable}}'>{{msg}}</view>
+
+</page>

@@ -1,0 +1,15 @@
+<!--components/MyTitle.wxml-->
+<view style="top:0%;height:70rpx;"></view>
+<view class="my_title">
+  <!-- logo -->
+  <view class="logo">
+    <image class="logo_img" src="../../image/logo.png"></image>
+  </view>
+  <view class="input">
+    <input placeholder='           输入您想要的商品' type="text" bindinput="inContent"></input>
+  </view>
+  <!-- 搜索 --> 
+  <view class="search_icon">
+    <icon type="search" bindtap="search"></icon>
+  </view>
+</view>

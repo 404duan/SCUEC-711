@@ -1,0 +1,12 @@
+<!--pages/register/register.wxml-->
+<image mode="aspectFit" src="/image/logo.png"style="width:100%;" ></image>
+<view class="body">
+  <view class='username'>
+    <input type="text" placeholder=' *用户名' bindinput='handleUsername'></input></view>
+  <view class='password'>
+    <input type="password" placeholder=' *密码' bindinput='handlepassword'></input></view>
+  <view class='repassword'>
+        <input placeholder=' *确认密码' type="password" bindinput='handleRePassword'></input>
+      </view>
+  <view><button bindtap="submitButton">注册</button></view>
+</view>

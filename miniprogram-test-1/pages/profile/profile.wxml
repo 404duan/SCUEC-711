@@ -1,0 +1,53 @@
+<!-- <view class='divider'></view> -->
+<!--  
+<view class='cell'>
+  <view class='cell-item'>
+    <text>用户信息</text>
+  </view>
+</view> -->
+
+<view class="avatar">
+  <view  wx:if="{{!hasUserInfo && canIUse}}" >
+    <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="getHeadImg">
+      <image src="/image/user.png"></image>
+    </button>
+    <view style="font-size:30rpx;color:white;padding-left:18rpx;">点击使用微信头像</view>
+  </view>
+  <block wx:else>
+    <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+  </block>
+  <view class='avatar-info'>
+    <text class='avatar-name'></text>
+    <text class='avatar-name'>{{nickname}}</text>
+    <text class='avatar-name'></text>
+  </view>
+</view>
+
+
+
+<!-- <view class='divider'></view> -->
+
+<view class='cell'>
+  <navigator url="userSetting/userSetting" class='cell-item arrow'>
+    <image style="height:50rpx;width:50rpx;" src="../../image/user2.png"></image>
+    <text style="margin-right: 45%;">个人信息设置</text>
+  </navigator>
+  <navigator url="../order3/order3" class='cell-item arrow'>
+    <image style="height:50rpx;width:50rpx;" src="../../image/List.png"></image>
+    <text style="margin-right: 55%;">我的订单</text>
+  </navigator>
+  <navigator url="collection/collection" class='cell-item arrow'>
+    <image style="height:50rpx;width:50rpx;" src="../../image/star2.png"></image>
+    <text style="margin-right: 55%;">我的收藏</text>
+  </navigator>
+</view>
+
+<view class='divider'></view>
+
+<view class='cell'>
+  <navigator url="aboutApp/aboutApp" class='cell-item arrow'>
+    <image style="height:50rpx;width:50rpx;" src="../../image/about.png"></image>
+    <text style="margin-right: 55%;">关于应用</text>
+  </navigator>
+
+</view>

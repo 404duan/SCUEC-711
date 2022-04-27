@@ -1,0 +1,32 @@
+<view style="top:0%;height:70rpx;"></view>
+<view class="my_title">
+  <!-- logo -->
+  <view class="logo">
+    <image class="logo_img" src="../../../image/logo.png"></image>
+  </view>
+  <view class="input">
+    <input placeholder='           输入您想要的商品' type="text" bindinput="inContent" value="{{searchCon}}"></input>
+  </view>
+  <!-- 搜索 --> 
+  <view class="search_icon">
+    <icon type="search" bindtap="search"></icon>
+  </view>
+</view>
+<view disable='{{disableOrnot}}'>
+    <view class="goodsTag" wx:key="" wx:for="{{goodsList}}" wx:for-item="goods">
+            <view bindtap='showDetil' id="{{index}}" data-data="{{goods}}" style="display:flex;width:85%;height:100%;">
+            <view class="goodsTagImage">
+              <image mode="aspectFit" src="{{goods.g_front}}"></image>
+            </view>
+            <view class="goodsTagText">
+              <view>{{goods.g_goodsname}} </view>
+              <view style="font-size:40rpx;color:red;">¥{{goods.g_goodsprice}} </view>
+              <view style="font-size:30rpx;">库存：{{goods.g_stock}}</view>
+            </view>
+            </view>
+            <!-- <view class="goodsTagAdd" bindtap='addToCart' data-data2="{{goods}}" style="background-color:{{goods.g_stock==0?'#999':'greenyellow'}}">加购</view> -->
+            <view class="goodsTagAdd">
+                <image style="height:60%;width:80%;margin-top:10rpx;" src="{{goods.g_stock==0?'../../../image/addCart1.png':'../../../image/addCart2.png'}}" bindtap='addToCart' data-data2="{{goods}}"></image>
+            </view>
+          </view>
+</view>

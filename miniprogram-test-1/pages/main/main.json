@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText":"民大711" ,
+  "usingComponents": {
+    "MyTitle": "../../components/MyTitle/MyTitle"
+  }
+}
