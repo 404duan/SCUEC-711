@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+		<mapper namespace="dao.CollectDao"> 
+			<select id="findAll"  resultType="entity.Collect"> 
+				select * from Collect
+			</select>
+			<select id="findByname" resultType="entity.Collect">
+				SELECT * FROM collect WHERE u_nickname = #{0}
+			</select>
+			<insert id="upCollect">
+				INSERT INTO collect(goodsID,u_nickname) VALUES(#{0},#{1})
+			</insert>
+			<delete id="removeCollection">
+				DELETE FROM collect WHERE u_nickname = #{0} AND goodsID = #{1}
+			</delete>
+			
+			<select id="fgByname" resultMap="CollectResultMap">
+				SELECT * FROM collect c,goods g WHERE c.u_nickname = #{0} AND c.goodsID = g.goodsID
+			</select>
+			<resultMap type="entity.Collect" id="CollectResultMap">
+				<id column="u_nickname" property="u_nickname"/>
+				<result column="c_id" property="c_id"/>
+				<collection column="goodsID" property="goodsList" ofType="entity.Goods" javaType="List">
+					<id property="goodsID" column="goodsID"/>
+					<result property="g_goodsname" column="g_goodsname"/>
+					<result property="g_goodsprice" column="g_goodsprice"/>
+					<result property="k_id" column="k_id"/>
+					<result property="g_describe" column="g_describe"/>
+					<result property="g_image" column="g_image"/>
+					<result property="g_stock" column="g_stock"/>
+					<result property="g_front" column="g_front"/>
+				</collection>
+			</resultMap>
+			
+			
+		</mapper>

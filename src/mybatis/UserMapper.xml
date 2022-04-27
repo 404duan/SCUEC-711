@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+		<mapper namespace="dao.UserDao"> 
+			<select id="findAll"  resultType="entity.User"> 
+				select * from User
+			</select> 
+			<select id="selectByname"  resultType="entity.User" parameterType="String"> 
+				select * from User where u_nickname=#{name}
+			</select> 
+			<select id="login" resultType="entity.User">
+				select * from User where u_nickname=#{0} and u_password=#{1}
+			</select>
+			<insert id="register">
+				insert into User(u_nickname,u_password) VALUES(#{0},#{1})
+			</insert>
+			<update id="reAddr">
+				UPDATE User SET u_address = #{0} , u_tell = #{1} , u_username = #{2} WHERE u_nickname = #{3}
+			</update>
+		</mapper>

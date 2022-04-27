@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+		<mapper namespace="dao.SalesCountDao"> 
+			<select id="findAll"  resultType="entity.SalesCount"> 
+				select * from SalesCount
+			</select> 
+			<select id="topSales" resultType="entity.SalesCount">
+				select * from SalesCount order by allSales desc limit 0,10
+			</select>
+			<select id="findByid" resultType="entity.SalesCount">			
+				SELECT * from Salescount WHERE goodsID = #{0}
+			</select>
+			<update id="upsales">
+				UPDATE salescount SET allSales = #{0}  WHERE goodsID = #{1}
+			</update>
+		</mapper>
